@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sadita Menu with Tabs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .slider {
+            transition: transform 0.3s ease;
+        }
+        .tab-button.active .slider {
+            transform: translateX(100%);
+        }
+    </style>
+</head>
+<body class="bg-red-900 flex flex-col items-center justify-center min-h-screen text-white">
+    <div class="w-full max-w-xs text-center">
+        <div class="flex justify-between items-center px-4 py-2">
+            <div class="text-lg font-bold">SADITA</div>
+            <i class="fas fa-times text-xl"></i>
+        </div>
+        <ul class="mt-8 space-y-4">
+            <li class="text-lg">Beranda</li>
+            <li class="text-lg">Tanya Dokter</li>
+            <li class="text-lg">Tentang sadita</li>
+            <li class="text-lg">Produk</li>
+            <li class="text-lg">Hubungi Kami</li>
+        </ul>
+        <div class="mt-8">
+            <i class="fas fa-map-marker-alt text-2xl"></i>
+        </div>
+        <div class="mt-4">
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer">
+                <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+            </label>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex relative items-center rounded-xl bg-gray-200 h-8 w-24 mb-4 mt-8">
+        <button id="news-tab" class="tab-button relative flex-1 py-2 font-bold focus:outline-none" onclick="showContent('news')">
+            <span class="relative z-10 text-gray-600 text-xs">ID</span>
+        </button>
+        <button id="tips-tab" class="tab-button relative flex-1 py-2 font-bold focus:outline-none" onclick="showContent('tips')">
+            <span class="relative z-10 text-gray-600 text-xs">ENG</span>
+        </button>
+        <!-- Slider -->
+        <div id="slider" class="slider absolute top-0 left-0 w-12 h-8 bg-red-700 rounded-xl pointer-events-none"></div>
+    </div>
+
+    <!-- Content -->
+    <div id="content" class="text-center text-white">
+        <div id="news-content" class="content-item">
+            <p>Selamat datang di situs kami. Kami menyediakan berbagai informasi dan layanan untuk membantu Anda.</p>
+            <p>Hubungi kami untuk informasi lebih lanjut.</p>
+        </div>
+        <div id="tips-content" class="content-item hidden">
+            <p>Welcome to our website. We provide various information and services to assist you.</p>
+            <p>Contact us for more information.</p>
+        </div>
+    </div>
+
+    <script>
+        function showContent(tab) {
+            const newsContent = document.getElementById('news-content');
+            const tipsContent = document.getElementById('tips-content');
+            const slider = document.getElementById('slider');
+
+            if (tab === 'news') {
+                newsContent.classList.remove('hidden');
+                tipsContent.classList.add('hidden');
+                slider.style.transform = 'translateX(0)';
+            } else {
+                newsContent.classList.add('hidden');
+                tipsContent.classList.remove('hidden');
+                slider.style.transform = 'translateX(100%)';
+            }
+        }
+    </script>
+</body>
+</html>
