@@ -75,6 +75,28 @@ hr {
   border-top-width: 1px;
   /* 3 */
 }
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/path-ke-font/Satoshi-Regular.woff2') format('woff2'),
+       url('/path-ke-font/Satoshi-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.text-maroon {
+  color: #800000 !important;
+}
+.text-satoshi{
+  font-family: 'Satoshi'sans-serif;
+}
+.bg-maroon{
+  background-color: #800000;
+}
+
+.box {
+  box-shadow: 0px 0px 5px 0px #00000040;
+}
+
 
 /*
 Add the correct text decoration in Chrome, Edge, and Safari.
